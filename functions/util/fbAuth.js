@@ -1,4 +1,4 @@
-const { admin } = require('./admin');
+const { admin, db } = require('./admin');
 
 //this is middleware
 module.exports = (req, res, next) => {

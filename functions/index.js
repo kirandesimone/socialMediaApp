@@ -7,7 +7,7 @@ const functions = require('firebase-functions');
 const FBAuth = require('./util/fbAuth');
 
 const { getAllScreams, postOneScream } = require('./handlers/screams');
-const {signUp, login } = require('./handlers/users');
+const {signUp, login, uploadImage } = require('./handlers/users');
 
 
 
@@ -18,6 +18,9 @@ app.post('/scream', FBAuth, postOneScream );
 //sign-up/login routes
 app.post('/signup', signUp);
 app.post('/login', login);
+
+//users routes
+app.post('/user/image', FBAuth, uploadImage);
 
 
 

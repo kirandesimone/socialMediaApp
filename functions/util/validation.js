@@ -9,7 +9,7 @@ const isEmpty = (string) => {
 //check for valid email
 const isEmail = (string) => {
     const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(email.match(emailRegEx)) {
+    if(string.match(emailRegEx)) {
         return true;
     } else {
         return false;
@@ -22,7 +22,7 @@ exports.validateSignUpData = (data) => {
 
     if(isEmpty(data.email)) {
         errors.email = 'Must not be empty';
-    }else if(!isEmail(newUser.email)) {
+    }else if(!isEmail(data.email)) {
         error.email = 'Must be a valid address'
     };
 
@@ -48,11 +48,11 @@ exports.validateSignUpData = (data) => {
 exports.validateLoginData = (data) => {
     let errors = {};
 
-    if(isEmpty(user.email)) {
+    if(isEmpty(data.email)) {
         return errors.email = 'must not be empty';
     };
 
-    if(isEmpty(user.password)) {
+    if(isEmpty(data.password)) {
         return errors.password = 'must not be empty';
     };
 
